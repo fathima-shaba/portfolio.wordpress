@@ -352,11 +352,17 @@ h2{
     transition:.5s;
 }
 .bg-title{
-    position:absolute;
-    font-size:140px;
-    font-weight:900;
-    color:rgba(255,255,255,.04);
-    z-index:-1;
+    position: absolute;
+    font-size: 80px; /* Reduced for mobile */
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.04);
+    z-index: -1;
+    pointer-events: none; /* Prevents it from affecting layout */
+    top: 50%; /* Center it properly */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
 }
 .stars{
     position:fixed;
@@ -514,43 +520,45 @@ footer{
     color:white;
     padding:20px;
 }
-
-@media(max-width:768px){
-
-.home{
-    flex-direction:column-reverse;
-    text-align:center;
+@media(max-width:768px) {
+    .home {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 150px; /* Add space for the nav */
+    }
+    .home img {
+        width: 250px; /* Smaller size for mobile */
+        height: 250px;
+    }
+    .home-text h1 {
+        font-size: 35px; /* Smaller heading */
+    }
+    nav {
+        padding: 15px; /* Adjust nav padding */
+        width: 95%;
+    }
+    nav ul {
+        display: none; /* Consider hiding menu or stacking it */
+    }
+    .projects-grid {
+        flex-direction: column; /* Stack projects vertically */
+        align-items: center;
+    }
+    .contact-container {
+        flex-direction: column; /* Stack contact info and form */
+    }
+    
+    .section {
+        padding: 60px 5% !important; /* Reduces vertical padding from 120px to 60px */
+    }
+    .home {
+        padding-top: 100px !important; /* Further adjusts home section space */
+    }
+    .bg-title {
+        display: none; /* Add this to hide it completely on mobile */
+        /* OR use: font-size: 60px; if you want to keep it small */
+    }
 }
-.home img{
-    width:350px;
-    height:450px;
-    object-fit:cover;
-    border-radius:20px;
-    border:4px solid #a855f7;
-    box-shadow:0 0 25px rgba(168,85,247,0.6);
-}
-.home-text h1{
-    font-size:40px;
-}
-
-nav{
-    flex-direction:column;
-}
-
-nav ul{
-    margin-top:15px;
-}
-.about p{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    line-height:1.8;
-    background:rgba(255,255,255,0.1);
-    padding:30px;
-    border-radius:20px;
-    backdrop-filter:blur(10px);
-}
-
 </style>
 </head>
 <body>
@@ -602,10 +610,7 @@ nav ul{
 
         <a href="#contact" class="btn">Hire Me</a>
         
-       <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>"
-</a>
-<div class="bg-title"></div>
-    </div>
+       <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
    <div class="bg-title">FATHIMA SABA</div>
     </div>
     <img src="images/shaba.jpeg" alt="Fathima shaba">
@@ -673,10 +678,7 @@ solve real-world problems.
 
     <h2>Resume</h2>
     <div style="text-align:center;margin-top:30px;">
-    <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>"
-       class="btn"
-       target="_blank">
-    </a>
+    <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
 </div>
 
 </section>
